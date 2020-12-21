@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Add Subjects</h1>
+<div class="form-group">
+    <div class="col-sm-5">
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_table}}
+   
+<br><br>
+<button class="btn btn-secondary">Add Subjects</button>
+</form>
+</div>
+</div>
+
+
+
+
+
+
+{% endblock %}  
+

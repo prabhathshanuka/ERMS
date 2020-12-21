@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+
+<div class="card" style="width: 50rem;">
+    <div class="card text-center">
+   <h5 class="card-header">---Registered Courses---</h5>  
+    </div>
+    
+<table class="table">
+    <thead class="table-light">
+    <thead>
+    <tr>
+        <th scope="col">Subject_Code</th>
+        <th scope="col">Subject_Name</th>
+        
+    
+    </thead>
+  
+    </tr>   
+        
+
+
+        {% for Subjects in object_list %}
+        <tr><td>{{Subjects.subject_code}} </td> 
+            <td>{{Subjects.subject_name}}</td>
+        
+   
+
+{% endfor %}
+        </table>
+<a href="{% url 'home' %}" class="btn btn-primary">Back</a>
+
+
+
+
+{% endblock %}

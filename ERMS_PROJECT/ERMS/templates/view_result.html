@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="card" style="width: 50rem;">
+    <div class="card text-center">
+   <h5 class="card-header">---Your Results---</h5>  
+    </div>
+    
+<table class="table">
+    <thead class="table-light">
+    <thead>
+    <tr>
+        <th scope="col">Subject_Code</th>
+        <th scope="col">Subject_Name</th>
+        
+        <th scope="col">Result</th>
+    
+    
+    
+    
+    </tr>   
+    </thead>
+    
+{% for Subjects in object_list %}
+    {% if user.email == Subjects.index_no.email %}
+    
+    <tr><td>{{Subjects.subject_code}} </td> 
+        <td>{{Subjects.subject_name}}</td>
+        <td>{% if Subjects.marks > 75 %}
+                A
+                {% elif Subjects.marks > 65 %}
+                     B
+                     {% elif Subjects.marks > 55 %}
+                         C
+                         {% elif Subjects.marks > 35 %}
+                             S
+                            {% else %}
+                                 F
+                            {%  endif %}                                               
+                    
+        </td>
+    
+    
+    
+    
+    </tr>
+    
+
+    {% endif %}
+
+{% endfor %}
+</table>
+</div>
+
+
+{% endblock %}  
+

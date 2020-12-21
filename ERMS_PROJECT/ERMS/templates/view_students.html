@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if user.is_authenticated %}
+<div class="card" style="width: 20rem;">
+    
+   <h5 class="card-header">Students</h5>  
+   
+
+<table class="table">
+    <thead class="table-light">
+    
+    <tr>
+        <th scope="col">Index_NO</th>
+    </tr>
+
+    </thead>
+    
+
+
+
+{% for Student in object_list %}
+    {% if user.is_admin or user.is_staff %} 
+
+   <tr> <td><a href="{% url 'view_student_details' Student.pk %}"> {{Student.index_no}} </a></td> </tr>
+    {% elif user.email == Student.email %}
+    <tr> <td><a href="{% url 'view_student_details' Student.pk %}"> {{Student.index_no}} </a></td> </tr>
+    {% endif %}
+
+
+{% endfor %}
+
+</table>
+
+</div>
+
+
+
+
+
+{% else %}
+
+You're not allowed to view student details
+
+{%  endif %} 
+
+
+
+
+
+{% endblock %}  

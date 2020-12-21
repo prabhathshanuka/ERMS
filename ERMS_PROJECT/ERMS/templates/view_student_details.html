@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% if user.is_admin or user.is_staff %} 
+   
+
+
+<div class="card" style="width: 50rem;">
+  
+   <h5 class="card-header">{{student.index_no}}</h5>  
+   
+
+<table class="table">
+    <thead class="table-light">
+    
+    <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Phone Number</th>
+        <th scope="col">Email</th>
+    </tr>
+
+    </thead>
+    
+
+
+
+   
+
+   <tr> <td> {{student.first_name}} {{student.last_name}}</td> <td> {{student.phone_number}} </td> <td> {{student.email}} </td></tr>
+   
+   
+    
+
+
+
+</table>
+<a href="{% url 'view_attendance' %}" class="btn btn-primary">View Attendance</a>
+</div>
+
+
+ 
+{% elif user.email == student.email %}
+<div class="card" style="width: 50rem;">
+  
+    <h5 class="card-header">{{student.index_no}}</h5>  
+    
+ 
+ <table class="table">
+     <thead class="table-light">
+     
+     <tr>
+         <th scope="col">Name</th>
+         <th scope="col">Phone Number</th>
+         <th scope="col">Email</th>
+     </tr>
+ 
+     </thead>
+     
+ 
+ 
+ 
+    
+ 
+    <tr> <td> {{student.first_name}} {{student.last_name}}</td> <td> {{student.phone_number}} </td> <td> {{student.email}} </td></tr>
+    
+    
+     
+ 
+ 
+ 
+ </table>
+ <a href="{% url 'view_attendance' %}" class="btn btn-primary">View Attendance</a>
+ </div>
+ <br/>
+ 
+ 
+
+{% else %}
+
+You're not allowed to view student details
+
+{%  endif %} 
+
+
+{% endblock %}  
