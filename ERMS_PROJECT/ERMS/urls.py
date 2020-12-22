@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.urls import path 
 from . import views
-from .views import HomeView, AddStudentView,AddSubjectView,view_results,view_student,view_student_detail,view_attendance,view_exam_report,view_course_report #comming from views.py 
+from .views import HomeView, AddStudentView,AddSubjectView,view_results,view_student_detail,view_attendance,view_exam_report,view_course_report,view_student #comming from views.py 
 
 urlpatterns = [
 
@@ -28,6 +28,7 @@ urlpatterns = [
     path('student/attendence/', view_attendance.as_view(), name='view_attendance'),
     path('student/examreport/',view_exam_report.as_view(), name='view_exam_report'),
     path('student/course_report/',view_course_report.as_view(), name='view_course_report'),
+    path('s/',views.stdview,name='search'),
    
 	
    

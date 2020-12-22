@@ -10,9 +10,9 @@
   <div class="card-body">
     <h5 class="card-title">View Students Details and Attendance Report </h5>
     {% if user.is_authenticated %}
-      <p class="card-text">You are login as staff Member "{{user.username}}" you can view students attendance report from here</p>
+      <p class="card-text">You are login as staff Member "{{user.username}}" you can view students reports from here</p>
       
-      <a href="{% url 'view_student' %}" class="btn btn-primary">Show Reports</a>
+      <a href="{% url 'search' %}" class="btn btn-primary">Show Reports</a>
       {% else %}
       <p class="card-text">If you are not login in to your account you are not allowed to view your reports..!!!</p>
       {% endif %}
@@ -85,7 +85,7 @@
       {% if user.is_authenticated %}
       <p class="card-text">You are login as "{{user.username}}" you can view your results from here</p>
       
-      <a href="{% url 'view_student' %}" class="btn btn-primary">Show Reports</a>
+      <a href="{% url 'search' %}" class="btn btn-primary">Show Reports</a>
       {% else %}
       <p class="card-text">If you are not login in to your account you are not allowed to view your reports..!!!</p>
       <p class="card-text">Please logging..!!!</p>

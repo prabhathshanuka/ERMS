@@ -23,11 +23,13 @@
 
 
         {% for Subjects in object_list %}
-        <tr><td>{{Subjects.subject_code}} </td> 
+          {% if user.email == Subjects.index_no.email %}
+            <tr><td>{{Subjects.subject_code}} </td> 
             <td>{{Subjects.subject_name}}</td>
             <td>{{Subjects.marks}} </td></tr>
-   
-
+          {% endif %}
+            
+          
 {% endfor %}
         </table>
 <a href="{% url 'home' %}" class="btn btn-primary">Back</a>

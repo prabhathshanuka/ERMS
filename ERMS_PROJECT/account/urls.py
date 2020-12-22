@@ -23,6 +23,7 @@ urlpatterns = [
     path('Staff_register/', StaffRegistrationView, name= 'staff_register'),
     path('login/', login_view, name= 'log_in'),
     path('logout/', logout_view, name= 'log_out'),
+   
     #path('Staff_register/', StaffRegistrationView.as_view(), name='staff_register'),
 
 

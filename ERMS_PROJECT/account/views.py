@@ -4,6 +4,7 @@ from account.forms import RegistrationForm,StaffRegistrationForm,AccountAuthenti
 from django.views.generic import ListView, CreateView, DetailView
 
 from .models import Account
+from ERMS.models import student
 
 # Create your views here.
 def UserRegisterView(request):

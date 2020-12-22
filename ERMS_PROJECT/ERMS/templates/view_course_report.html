@@ -23,10 +23,11 @@
 
 
         {% for Subjects in object_list %}
-        <tr><td>{{Subjects.subject_code}} </td> 
-            <td>{{Subjects.subject_name}}</td>
+         {% if user.email == Subjects.index_no.email %}
+             <tr><td>{{Subjects.subject_code}} </td> 
+             <td>{{Subjects.subject_name}}</td>
         
-   
+         {% endif %}
 
 {% endfor %}
         </table>

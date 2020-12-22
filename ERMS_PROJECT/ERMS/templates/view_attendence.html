@@ -13,22 +13,21 @@
     <thead>
     <tr>
         <th scope="col">Subject_Code</th>
-        <th scope="col">Subject_Name</th>
-        
+        <th scope="col">Subject_Name</th>   
         <th scope="col">Attendance</th>
     </thead>
   
     </tr>   
-        
-
-
+    {% if user.is_admin or user.is_staff %} 
         {% for Subjects in object_list %}
+          {% if user.email == Subjects.index_no.email %}
+
         <tr><td>{{Subjects.subject_code}} </td> 
             <td>{{Subjects.subject_name}}</td>
             <td>{{Subjects.attendance}} </td></tr>
-   
-
-{% endfor %}
+            {% endif %}
+        {% endfor %}
+    {% endif %}
         </table>
 <a href="{% url 'view_student' %}" class="btn btn-primary">Back</a>
 

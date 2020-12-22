@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h5>Please enter 'subject_code' !</h5>
+<br>
+
+<form class="form-inline md-form mr-auto mb-4" role="search" action = '/s/'>
+    <input class="form-control mr-sm-2" type="text" placeholder="Subject_Code" aria-label="Search" name= 'q'>
+    <button class="btn btn-outline-success btn-rounded btn-sm my-0" type="submit">Search</button>
+</form>
+
+
+  
+
+{% if user.is_admin or user.is_staff %} 
+   
+
+
+<div class="card" style="width: 50rem;">
+  
+   <h5 class="card-header">{{ query }}</h5>  
+   
+
+<table class="table">
+    <thead class="table-light">
+    
+    <tr>
+        <th scope="col">Index No</th>
+        <th scope="col">Name</th>
+        <th scope="col">Subject_Code</th>
+        <th scope="col">Subject_Name</th>
+        <th scope="col">Marks</th>
+        <th scope="col">Attendance</th>
+    </tr>
+
+    </thead>
+    
+
+
+ {% for std in sbjct %}
+   
+
+   <tr>  <td> {{std.index_no}} </td> <td> {{std.index_no.first_name}} {{std.index_no.last_name}}  </td> <td> {{std.subject_code}} </td> <td> {{std.subject_name}}</td> <td> {{std.marks}} </td> <td> {{std.attendance}} % </td></tr>
+
+
+{% endfor %}
+   
+</table>
+</div>
+
+
+
+
+
+
+
+
+
+
+{% else %}
+
+{% for std in sbjct %} 
+    {% if user.email == std.index_no.email %}
+<div class="card" style="width: 50rem;">
+  
+    <h5 class="card-header">{{std.index_no}}</h5>  
+    
+ 
+ <table class="table">
+     <thead class="table-light">
+     
+     <tr>
+        <th scope="col">Index No</th>
+        <th scope="col">Subject_Code</th>
+        <th scope="col">Subject_Name</th>
+        <th scope="col">Attendance</th>
+    </tr>
+
+    </thead>
+    
+
+
+
+   
+
+ <tr>  <td> {{std.index_no}} </td> <td> {{std.subject_code}} </td>  <td> {{std.subject_name}}</td> <td> {{std.attendance}} % </td></tr>
+</table>
+
+       
+            
+        {% endif %}
+    {% endfor %} 
+ {% endif %}
+     
+ 
+ 
+ 
+
+ </div>
+ <br/>
+ 
+ 
+
+
+
+<!---->
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+    

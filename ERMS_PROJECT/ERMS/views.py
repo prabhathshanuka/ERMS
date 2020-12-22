@@ -6,6 +6,10 @@ from account.models import Account
 from .models import student,subject
 from .forms import AddStudentForm,AddSubjectForm
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
+from django.core import serializers
+from django.http import JsonResponse
+from django.contrib import messages
 
 
 
@@ -65,8 +69,24 @@ class view_course_report(ListView):
 
 
 
-	
-	
+def stdview(request):
+	try: 
+		q = request.GET.get('q')
+	except:
+		q=None
+	if q:
+		sbjct = subject.objects.filter(subject_code__icontains=q) 
+		
+		context = {'query': q, 'sbjct': sbjct}
+		template = "search.html"
+	else:
+		template = "search.html"
+		context = {}	
+	return render(request,template,context)
+
+
+
+
     
 
 
