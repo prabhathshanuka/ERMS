@@ -37,7 +37,3 @@ class AddSubjectForm(forms.ModelForm):
        }
 
 
-class SearchForm(forms.ModelForm):
-    class Meta:
-        model = student
-        fields = ('index_no',)
